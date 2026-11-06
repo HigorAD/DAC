@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" width="520" height="360" font-family="Arial, Helvetica, sans-serif" font-size="13">
+  <rect width="520" height="360" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- silhueta do vaso (vista frontal, escala 2 px/mm) -->
+  <path d="M140,300 C115,250 108,205 110,180 C112,140 118,95 130,60" fill="none" stroke="#b5651d" stroke-width="2.5"/>
+  <path d="M260,300 C285,250 292,205 290,180 C288,140 282,95 270,60" fill="none" stroke="#b5651d" stroke-width="2.5"/>
+  <line x1="140" y1="300" x2="260" y2="300" stroke="#b5651d" stroke-width="2.5"/>
+
+  <!-- secoes -->
+  <line x1="140" y1="300" x2="260" y2="300" stroke="#1f6fb2" stroke-width="3"/>
+  <line x1="110" y1="180" x2="290" y2="180" stroke="#1f6fb2" stroke-width="3"/>
+  <line x1="130" y1="60" x2="270" y2="60" stroke="#1f6fb2" stroke-width="3"/>
+  <line x1="200" y1="40" x2="200" y2="320" stroke="#888" stroke-width="1" stroke-dasharray="8 4 2 4"/>
+
+  <!-- rotulos das secoes -->
+  <text x="20" y="304" fill="#1f6fb2" font-weight="bold">Sketch 1</text>
+  <text x="20" y="320" fill="#333">quadrado 60 × 60</text>
+  <text x="20" y="184" fill="#1f6fb2" font-weight="bold">Sketch 2</text>
+  <text x="20" y="200" fill="#333">círculo Ø90</text>
+  <text x="20" y="64" fill="#1f6fb2" font-weight="bold">Sketch 3</text>
+  <text x="20" y="80" fill="#333">círculo Ø70</text>
+
+  <!-- cotas de largura -->
+  <line x1="140" y1="335" x2="260" y2="335" stroke="#333" marker-start="url(#a)" marker-end="url(#a)"/>
+  <text x="200" y="352" text-anchor="middle" fill="#333">60</text>
+  <line x1="130" y1="35" x2="270" y2="35" stroke="#333" marker-start="url(#a)" marker-end="url(#a)"/>
+  <text x="200" y="28" text-anchor="middle" fill="#333">Ø70</text>
+  <text x="200" y="174" text-anchor="middle" fill="#333">Ø90</text>
+
+  <!-- cotas de altura -->
+  <line x1="300" y1="300" x2="345" y2="300" stroke="#999" stroke-width="1"/>
+  <line x1="300" y1="180" x2="345" y2="180" stroke="#999" stroke-width="1"/>
+  <line x1="280" y1="60" x2="400" y2="60" stroke="#999" stroke-width="1"/>
+  <line x1="340" y1="300" x2="340" y2="180" stroke="#333" marker-start="url(#a)" marker-end="url(#a)"/>
+  <text x="348" y="245" fill="#333">60</text>
+  <line x1="340" y1="180" x2="340" y2="60" stroke="#333" marker-start="url(#a)" marker-end="url(#a)"/>
+  <text x="348" y="125" fill="#333">60</text>
+  <line x1="300" y1="300" x2="405" y2="300" stroke="#999" stroke-width="1"/>
+  <line x1="395" y1="300" x2="395" y2="60" stroke="#333" marker-start="url(#a)" marker-end="url(#a)"/>
+  <text x="401" y="240" fill="#333">120</text>
+
+  <!-- legenda -->
+  <text x="432" y="300" fill="#555" font-size="11">plano Top</text>
+  <text x="432" y="184" fill="#555" font-size="11">Plane a 60</text>
+  <text x="432" y="64" fill="#555" font-size="11">Plane a 120</text>
+</svg>
