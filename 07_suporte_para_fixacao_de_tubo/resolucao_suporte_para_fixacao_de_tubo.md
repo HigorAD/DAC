@@ -1,10 +1,13 @@
 # Atividade 07 — Resolução comentada do suporte para fixação de tubo
 
 **Referência:** [enunciado do exercício](exercicio_suporte_para_fixacao_de_tubo.md)  
-**Software:** Solid Edge — Part / Ordered e Draft  
-**Unidades:** milímetros (mm)
+**Software:** Solid Edge — Part / Ordered e Draft (procedimento validado no Solid Edge 2026, interface em inglês)  
+**Unidades:** milímetros (mm)  
+**Modelo de referência:** [`modelo/Gabarito_Suporte_Tubo.par`](modelo/Gabarito_Suporte_Tubo.par)
 
-Este documento apresenta uma solução de modelagem e os valores para conferência. Outras sequências de operações são válidas quando atendem aos requisitos. Os nomes e a localização dos comandos podem variar com a versão e o idioma do Solid Edge.
+Este documento apresenta uma solução de modelagem e os valores para conferência. Outras sequências de operações são válidas quando atendem aos requisitos. Os nomes e a localização dos comandos podem variar com a versão e o idioma do Solid Edge. Os ícones e as telas reproduzidos aqui são do Solid Edge 2026.
+
+![Suporte concluído: base com quatro furos de fixação, ressalto com furo horizontal Ø16 e furo roscado M8 no topo](assets/se26_suporte_final.png)
 
 ![Vistas cotadas de referência do suporte para conferência da solução](assets/01_vistas_cotadas.png)
 
@@ -87,159 +90,158 @@ Assim, o recurso vertical de 10 mm alcança o vazio do furo horizontal. A espess
 
 ### Etapa 1 — Criar a base
 
-1. Crie um documento **Part**, em **Ordered**, com unidades em milímetros.
-2. Salve como `Nome_Suporte_Tubo.par`.
-3. No plano XY, crie um esboço retangular de **100 × 60 mm**.
-4. Posicione um canto na origem e dimensione o esboço.
-5. Finalize o esboço e aplique **Extrude** com **10 mm** no sentido positivo de Z.
+1. Crie um documento **Part** (modelo ISO métrico), confira **Ordered** no topo do PathFinder e salve como `Nome_Suporte_Tubo.par`.
+2. Na guia **Home**, clique em **Sketch** e selecione o plano **Top (xy)**.
 
-**Conferência:** a base ocupa de Z = 0 a Z = 10.
+   ![Botão Sketch](assets/icones/btn_sketch.png)
+
+3. No grupo **Draw**, abra o menu do retângulo ![Menu do retângulo](assets/icones/btn_rectangle_dd.png) e escolha **Rectangle by 2 Points** ![Rectangle by 2 Points](assets/icones/menu_rectangle_2pts.png). Desenhe o retângulo com um canto na origem.
+4. Cote com **Smart Dimension**: **100 mm** em X e **60 mm** em Y. Clique em **Close Sketch**.
+
+   ![Botão Smart Dimension](assets/icones/btn_smart_dimension.png) ![Botão Close Sketch](assets/icones/btn_close_sketch.png)
+
+5. Clique em **Extrude**, selecione o esboço, digite **10 mm**, escolha o sentido **+Z** (para cima) e clique em **Finish**.
+
+   ![Botão Extrude](assets/icones/btn_extrude.png)
+
+**Conferência:** a base ocupa de Z = 0 a Z = 10. No PathFinder aparecem **Sketch 1** e **Protrusion 1**.
 
 ### Etapa 2 — Criar o ressalto
 
-1. Inicie um esboço na face superior da base.
-2. Desenhe um retângulo de **40 × 30 mm**, com o lado de 40 mm paralelo a X.
-3. Posicione seu canto em **X = 30 mm e Y = 15 mm**, ou use relações de centralização equivalentes.
-4. Aplique uma extrusão de **30 mm acima da base**, com adição de material ao sólido existente.
+1. Clique em **Sketch** ![Botão Sketch](assets/icones/btn_sketch.png) e selecione a **face superior da base**.
+2. Desenhe um retângulo de **40 × 30 mm** com **Rectangle by 2 Points**, com o lado de 40 mm paralelo a X.
+3. Posicione-o com cotas de **30 mm** até a borda X = 0 e **15 mm** até a borda Y = 0, ou use relações de centralização equivalentes. Clique em **Close Sketch** ![Botão Close Sketch](assets/icones/btn_close_sketch.png).
+4. Clique em **Extrude** ![Botão Extrude](assets/icones/btn_extrude.png), selecione o esboço e extrude **30 mm** para cima, adicionando material ao sólido existente.
 
-**Conferência:** a face superior fica em Z = 40. O ressalto não deve formar um corpo separado.
+**Conferência:** a face superior fica em Z = 40. O ressalto não deve formar um corpo separado: em **Design Bodies** continua existindo apenas **Design Body_1**.
 
 ### Etapa 3 — Criar o primeiro furo de fixação
 
-1. Acione **Hole** e selecione a face superior exposta da base.
-2. Configure um furo simples de **Ø8 mm**, com extensão passante.
-3. Posicione seu centro a **12 mm da borda X = 0** e a **12 mm da borda Y = 0**.
-4. Oriente a remoção de material para dentro da base e conclua o comando.
+1. Na guia **Home**, clique em **Hole**. No painel do comando, clique em **Options** ![Botão Options do Hole](assets/icones/btn_hole_options.png) para abrir o diálogo **Hole Options**.
 
-**Conferência:** o eixo do primeiro furo está em X = 12 e Y = 12.
+   ![Botão Hole](assets/icones/btn_hole.png)
+
+2. No **Hole Options**, configure:
+   - tipo **Simple** ![Tipo Simple](assets/icones/opt_tipo_simple.png) (primeiro botão);
+   - **Standard:** ISO Metric; **Size:** **8** (a lista traz os diâmetros em mm);
+   - **Hole extents:** **Through All** ![Through All](assets/icones/opt_ext_through_all.png) (primeiro botão). O padrão do diálogo é o segundo botão, *Through Next*.
+
+   Clique em **OK**.
+3. Clique na **face superior exposta da base**. No esboço do furo, posicione o centro e cote **12 mm** até a borda X = 0 e **12 mm** até a borda Y = 0.
+4. Clique em **Close Sketch**, confirme que a seta de remoção aponta para dentro da base e clique em **Finish**.
+
+**Conferência:** o eixo do primeiro furo está em X = 12 e Y = 12. O recurso aparece como **Hole 1**.
 
 ### Etapa 4 — Distribuir os furos por padrão
 
-1. Acione **Rectangular Pattern** e selecione o recurso do furo de Ø8 mm.
-2. Utilize um plano paralelo à base para definir as direções.
-3. Configure **duas ocorrências em X**, com distância entre centros de **76 mm**.
-4. Configure **duas ocorrências em Y**, com distância entre centros de **36 mm**.
-5. Confira os sentidos das direções e confirme a operação.
+1. Na guia **Home**, grupo **Pattern**, clique em **Pattern** ![Pattern](assets/icones/menu_pattern.png). O mesmo botão faz padrões retangulares e circulares; o tipo é escolhido no painel.
 
-**Conferência:** a prévia deve mostrar quatro furos nas coordenadas da seção 1.2. Verifique se o campo do software representa espaçamento ou extensão total; com duas posições por direção, os valores entre a primeira e a última são 76 e 36 mm.
+   ![Botão Pattern](assets/icones/btn_pattern.png)
+
+2. No painel, mantenha **Pattern Type: Rectangular**, clique em **Hole 1** (no modelo ou no PathFinder) e aceite (✓).
+
+   ![Painel do Pattern com Hole 1 selecionado](assets/se26_pattern_selecao.png)
+
+3. Clique na **face superior da base**. O Solid Edge abre um esboço com o painel **Rectangular Pattern**.
+4. No painel, escolha o tipo **Fixed** ![Tipo Fixed](assets/icones/pat_tipo_fixed.png) (terceiro botão) e configure:
+   - **X:** **2** ocorrências, espaçamento **76 mm**;
+   - **Y:** **2** ocorrências, espaçamento **36 mm**.
+5. Clique no **centro do Hole 1** para o primeiro ponto e indique o sentido do padrão para dentro da base.
+6. Clique em **Close Sketch** e depois em **Finish**.
+
+![Painel Rectangular Pattern dentro do esboço, com a face da base vista de cima](assets/se26_pattern_painel.png)
+
+**Atenção à orientação:** a vista do esboço pode aparecer **girada**. Na reprodução, o eixo X local (seta vermelha) apontava para baixo, ao longo dos 100 mm. Associe **76 mm à direção dos 100 mm** e **36 mm à direção dos 60 mm**, seja qual for a posição na tela.
+
+**Conferência:** a prévia deve mostrar quatro furos nas coordenadas da seção 1.2. Os três tipos do painel diferem na forma de informar a distância: **Fixed** usa o espaçamento entre centros; **Fit** usa a extensão total (*Width/Height*); **Fill** preenche uma região. Com duas posições por direção, espaçamento e extensão coincidem (76 e 36 mm).
 
 ### Etapa 5 — Criar o furo horizontal de Ø16 mm
 
-1. Acione **Hole** e selecione uma face vertical do ressalto com dimensões de **40 × 30 mm**, por exemplo a face situada em Y = 15.
-2. Configure um furo simples de **Ø16 mm**, passante.
+1. Clique em **Hole** ![Botão Hole](assets/icones/btn_hole.png) › **Options** ![Botão Options do Hole](assets/icones/btn_hole_options.png): tipo **Simple** ![Tipo Simple](assets/icones/opt_tipo_simple.png), **Size 16**, extensão **Through All** ![Through All](assets/icones/opt_ext_through_all.png). Clique em **OK**.
+2. Selecione uma face vertical do ressalto com dimensões de **40 × 30 mm**, por exemplo a face situada em Y = 15.
 3. Posicione o centro a **20 mm de uma borda lateral do ressalto** e a **15 mm de sua borda inferior**, situada sobre a base.
-4. Oriente o furo para atravessar o ressalto ao longo de Y e conclua a operação.
+4. Clique em **Close Sketch**, oriente o furo para atravessar o ressalto ao longo de Y e clique em **Finish**.
 
-**Conferência:** o furo atravessa 30 mm de material na direção Y. Seu eixo está em X = 50 e Z = 25, centralizado na face escolhida.
+**Conferência:** o furo atravessa 30 mm de material na direção Y. Seu eixo está em X = 50 e Z = 25, centralizado na face escolhida. O recurso aparece como **Hole 2**.
 
 ### Etapa 6 — Criar o furo roscado M8
 
-1. Acione **Hole** e selecione a face superior do ressalto.
-2. Escolha a opção de furo roscado, o padrão **ISO Metric**, o tamanho **M8** e seu passo normal na tabela do software.
+1. Clique em **Hole** ![Botão Hole](assets/icones/btn_hole.png) › **Options** ![Botão Options do Hole](assets/icones/btn_hole_options.png) e configure o **Hole Options** exatamente assim:
+   - tipo **Threaded** ![Tipo Threaded](assets/icones/opt_tipo_threaded.png) (segundo botão da primeira linha);
+   - **Standard:** ISO Metric; **Sub type:** a rosca padrão (nesta instalação, "Rosca Padrão");
+   - **Size:** **M8**. O item `M8` da lista é a rosca de **passo normal (1,25 mm)**; os itens com passo explícito logo abaixo, como `M8 x 1`, são passos finos e **não** devem ser usados;
+   - **Hole extents:** **Finite Extent** ![Finite Extent](assets/icones/opt_ext_finite.png) (quarto botão) e **Hole depth: 10 mm**;
+   - na seção **Threads**, em **Thread extent**, marque **To hole extent**. O padrão é *Finite extent* com apenas **2,00 mm** de rosca;
+   - confira **Pitch: 1,25 mm**.
+
+   ![Hole Options configurado para o M8: Threaded, ISO Metric, M8, Finite Extent de 10 mm e rosca até o fim do furo](assets/se26_hole_options_m8.png)
+
+2. Clique em **OK** e selecione a **face superior do ressalto**.
 3. Posicione o centro a **20 mm de uma borda na direção X** e a **15 mm de uma borda na direção Y**. Isso corresponde a X = 50 e Y = 30 na peça.
-4. Configure a extensão nominal do furo em **10 mm**, a partir da face superior e para baixo. Se houver campos separados de profundidade do furo e da rosca, use **10 mm para ambos** nesta atividade.
-5. Confira a prévia e conclua a operação.
+4. Clique em **Close Sketch**, confirme o sentido para baixo e clique em **Finish**. O recurso aparece como **Hole 3**.
 
-**Conferência:** o furo começa em Z = 40 e seu fim nominal está em Z = 30. A abertura deve comunicar-se com o furo de Ø16 mm. Gire o modelo e inspecione essa comunicação pelo furo horizontal; use uma seção de inspeção, se disponível e necessária.
+**Conferência:** o furo começa em Z = 40 e seu fim nominal está em Z = 30. A abertura deve comunicar-se com o furo de Ø16 mm. Gire o modelo e inspecione essa comunicação pelo furo horizontal.
 
-O fundo de broca pode incluir uma ponta cônica conforme a configuração do recurso. O valor de 10 mm deve ser informado no campo de profundidade do furo, sem estimá-lo visualmente pela ponta.
+O cilindro modelado tem o **diâmetro menor da rosca (6,647 mm)**, conforme a opção *Internal minor diameter* da seção Threads. Com **V bottom angle** desmarcado (padrão), o fundo é plano; como o fim cai dentro do vazio do Ø16, isso não altera a geometria final.
 
-Não substitua o recurso roscado por um furo simples de Ø8 mm. Utilize a definição M8 da tabela e preserve as informações de rosca para o desenho. A aparência gráfica pode representar a rosca de forma simplificada, sem espiras modeladas por Helix.
+Não substitua o recurso roscado por um furo simples de Ø8 mm. Utilize a definição M8 da tabela e preserve as informações de rosca para o desenho. A aparência gráfica representa a rosca de forma simplificada, sem espiras modeladas por Helix.
 
 ### Etapa 7 — Aplicar os chanfros
 
 Uma escolha de referência para esta resolução é chanfrar **as quatro arestas do perímetro superior externo da base**, em Z = 10, com **1 × 45°**.
 
-1. Acione **Chamfer**.
-2. Selecione somente essas quatro arestas externas da base.
-3. Configure **1 mm e 45°**, ou distâncias iguais de 1 mm nas faces perpendiculares, conforme a opção disponível.
-4. Confira a prévia e confirme.
+1. Na guia **Home**, abra o menu de **Round** e escolha **Chamfer** ![Chamfer](assets/icones/menu_chamfer.png).
+
+   ![Menu do Round aberto, com a opção Chamfer](assets/se26_menu_round_chamfer.png)
+
+2. Em **Options**, mantenha **Equal Setbacks** ![Equal Setbacks](assets/icones/ch_equal_setbacks.png) (primeiro botão), que equivale a 1 × 45°.
+3. Em **Selection Type**, troque *Chain* por **Edge** e clique nas **quatro arestas externas** do topo da base.
+4. Em **Setback**, digite **1 mm**. O valor padrão é **5,00 mm**.
+5. Aceite (✓), confira a prévia e clique em **Finish**.
+
+![Painel do Chamfer: Equal Setbacks, Selection Type e Setback](assets/se26_chamfer_painel.png)
 
 Essa seleção mantém as bocas dos furos e as arestas do ressalto sem chanfro. Outras escolhas são aceitas pelo enunciado, desde que registradas no desenho e sem prejuízo aos detalhes funcionais.
 
-### Etapa 8 — Revisar o modelo
+### Etapa 8 — Revisar o modelo e conferir o volume
 
-Uma árvore de recursos possível é:
+1. Confira a árvore no **PathFinder**. Com esboços criados separadamente, como nesta resolução, a sequência é:
 
-```text
-Extrusão — Base 100 × 60 × 10
-Extrusão — Ressalto 40 × 30 × 30
-Furo — Ø8 passante
-Padrão retangular — 2 × 2; espaçamentos 76 e 36
-Furo — Ø16 passante, horizontal
-Furo roscado — M8; profundidade nominal 10
-Chanfro — 1 × 45° no perímetro superior externo da base
-```
+   ```text
+   Sketch 1       Esboço da base 100 × 60
+   Protrusion 1   Extrusão da base, 10 mm
+   Sketch 2       Esboço do ressalto 40 × 30
+   Protrusion 2   Extrusão do ressalto, 30 mm
+   Hole 1         Ø8 passante (Through All)
+   Pattern 1      Padrão retangular 2 × 2; espaçamentos 76 e 36
+   Hole 2         Ø16 passante, horizontal
+   Hole 3         M8 (passo 1,25); profundidade 10; rosca até o fim do furo
+   Chamfer 1      1 × 45° no perímetro superior externo da base
+   ```
 
-Confira se os recursos não apresentam falhas e salve o arquivo.
+   Se o perfil for desenhado dentro do próprio comando Extrude, os itens *Sketch* não aparecem; a sequência de recursos é a mesma.
 
-## 3. Desenho técnico resolvido
+2. Na guia **Inspect**, grupo **Physical Properties**, clique em **Properties**. O diálogo abre com os valores zerados (*"Physical Properties are out-of-date"*); clique em **Update** para calcular.
 
-1. Crie um documento **Draft** e selecione o arquivo `.par` pelo assistente de vistas.
-2. Adote como frontal a orientação olhando ao longo de Y, para visualizar o furo de Ø16 mm como círculo.
-3. Insira as vistas superior e lateral necessárias e uma vista isométrica.
-4. Organize as vistas segundo o sistema de projeção adotado na disciplina.
-5. Ajuste a escala para preservar espaço para as cotas.
-6. Insira linhas de centro e marcas de centro onde forem necessárias.
+   ![Botão Properties](assets/icones/btn_properties.png)
 
-### 3.1. Distribuição sugerida das informações
+3. Compare o volume com os valores de referência, obtidos no modelo de referência:
 
-| Vista | Informações principais |
-|---|---|
-| Superior | Base 100 × 60; ressalto 40 × 30; afastamentos de 30 e 15 do ressalto; posição dos quatro furos; chamada do furo M8 centralizado |
-| Frontal | Espessura da base de 10; altura total de 40; furo Ø16 passante; eixo a 25 da face inferior da base e centralizado no ressalto |
-| Lateral | Informações complementares para compreender o furo horizontal e a comunicação com o furo vertical, sem repetir cotas já suficientes |
-| Isométrica | Forma geral da peça e indicação dos chanfros, quando a chamada ficar mais clara nessa vista |
+   | Após o recurso | Volume (mm³) | Variação |
+   |---|---:|---|
+   | Protrusion 1 (base) | 60 000,0 | 100 × 60 × 10 |
+   | Protrusion 2 (ressalto) | 96 000,0 | + 40 × 30 × 30 |
+   | Hole 1 (Ø8) | 95 497,3 | − π·4²·10 |
+   | Pattern 1 | 93 989,4 | − 3 furos de Ø8 |
+   | Hole 2 (Ø16) | 87 957,5 | − π·8²·30 |
+   | Hole 3 (M8) | 87 708,4 | − 249,1 (só o trecho em material) |
+   | Chamfer 1 (peça final) | **87 549,8** | − 158,6 |
 
-Para localizar os quatro furos na vista superior, pode-se cotar **12 mm até o primeiro centro e 76 mm entre centros em X**, e **12 mm até o primeiro centro e 36 mm entre centros em Y**. Com o contorno de 100 × 60, isso define também as margens opostas de 12 mm; evite acrescentar cotas redundantes.
+   ![Physical Properties da peça final: volume 87 549,761 mm³ e centro de volume em X = 50 e Y = 30](assets/se26_physical_properties.png)
 
-Indique o furo M8 no centro do ressalto por linhas de centro e informações de centralização inequívocas, ou por cotas de posição suficientes. No furo horizontal, a centralização na dimensão de 40 mm pode ser definida por uma cota de 20 mm até seu eixo.
+   O **centro de volume** deve estar em **X = 50 mm e Y = 30 mm**, o que confirma a centralização do ressalto e dos furos. A massa aparece como zero enquanto nenhum material for atribuído; isso não afeta a atividade.
 
-### 3.2. Chamadas sugeridas
+4. Salve o arquivo.
 
-- **`4 × Ø8 PASSANTE`**, com linha de chamada para um dos furos de fixação.
-- **`Ø16 PASSANTE`**, na vista em que esse furo aparece como círculo.
-- **`M8 — PROFUNDIDADE NOMINAL 10 mm`**, preferencialmente com anotação de furo vinculada ao recurso. Mantenha a identificação do passo conforme o padrão adotado no desenho.
-- **`FURO M8 COMUNICANTE COM Ø16`**, se necessário para esclarecer a interseção.
-- **`1 × 45° — NAS 4 ARESTAS DO PERÍMETRO SUPERIOR EXTERNO DA BASE`**, com chamada para uma aresta correspondente, nesta solução.
 
-Se as linhas ocultas tornarem a leitura confusa, uma vista em corte pelo plano X = 50 evidencia os dois furos comunicantes. Esse corte é uma opção complementar; não é necessário exigir um comando ainda não estudado.
 
-### 3.3. Finalização
-
-1. Preencha identificação, título, unidades e escala.
-2. Atualize todas as vistas após salvar a versão final do modelo.
-3. Salve como `Nome_Suporte_Tubo.dft`.
-4. Exporte como `Nome_Suporte_Tubo.pdf`.
-5. Abra o PDF e confira legibilidade, símbolos, enquadramento e ausência de cortes na folha.
-
-## 4. Gabarito de conferência
-
-| Verificação | Resultado esperado |
-|---|---|
-| Dimensões gerais antes dos chanfros | 100 × 60 × 40 mm |
-| Ressalto | Centralizado; altura de 30 mm acima da base |
-| Margens do ressalto | 30 mm em X e 15 mm em Y, de cada lado |
-| Furos de fixação | Quatro de Ø8, passantes, nas coordenadas indicadas |
-| Distâncias entre centros de fixação | 76 mm em X e 36 mm em Y |
-| Eixo do furo horizontal | Paralelo a Y; X = 50 e Z = 25 |
-| Material abaixo e acima do furo horizontal no ressalto | 7 mm em cada lado, medidos no plano central vertical |
-| Eixo do furo roscado | Vertical; X = 50 e Y = 30 |
-| Profundidade nominal do recurso M8 | 10 mm, comunicando-se com Ø16 |
-| Chanfros desta resolução | Quatro arestas do perímetro superior externo da base; 1 × 45° |
-| Arquivos finais | `.par`, `.dft` e PDF coerentes entre si |
-
-## 5. Erros frequentes
-
-| Erro | Correção |
-|---|---|
-| Usar 30 mm como altura total da peça | Extrudar o ressalto 30 mm sobre a base de 10 mm; total de 40 mm |
-| Medir os 25 mm a partir do topo da base | A referência é a face inferior; na face do ressalto, a cota local é 15 mm |
-| Orientar o furo Ø16 ao longo dos 40 mm | Selecionar a face de 40 × 30 mm para que o eixo atravesse a profundidade de 30 mm |
-| Distribuir os furos a 12 mm entre si | Os 12 mm são margens; os espaçamentos são 76 e 36 mm |
-| Configurar três ocorrências por direção | Utilizar duas posições por direção, totalizando quatro furos |
-| Criar um furo simples Ø8 no lugar de M8 | Configurar um furo roscado pela tabela ISO Metric |
-| Fazer o furo M8 atravessar a peça inteira | Usar extensão nominal de 10 mm a partir do topo do ressalto |
-| Considerar 10 mm como comprimento contínuo de rosca em material | Observar a interseção com o furo horizontal e a espessura central de 7 mm |
-| Anotar chanfro em todas as arestas sem tê-las chanfrado | Identificar somente as arestas efetivamente selecionadas |
-| Exportar um desenho desatualizado | Salvar o modelo, atualizar as vistas e exportar novamente |

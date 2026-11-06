@@ -55,6 +55,20 @@ Use as dimensões nominais dos contornos antes dos chanfros como referência par
 7. Gere o desenho técnico no ambiente **Draft**.
 8. Revise o modelo, atualize as vistas e exporte o desenho em PDF.
 
+### 3.1. Comandos principais
+
+| Tarefa | Comando no Solid Edge | Ícone |
+|---|---|---|
+| 2 | **Sketch** e **Extrude** (guia Home) | ![Sketch](assets/icones/btn_sketch.png) ![Extrude](assets/icones/btn_extrude.png) |
+| 3 | **Hole**, tipo *Simple*, e **Pattern**, tipo *Rectangular* | ![Hole](assets/icones/btn_hole.png) ![Pattern](assets/icones/btn_pattern.png) |
+| 4 | **Hole**, tipo *Simple*, extensão *Through All* | ![Simple](assets/icones/opt_tipo_simple.png) ![Through All](assets/icones/opt_ext_through_all.png) |
+| 5 | **Hole**, tipo *Threaded*, extensão *Finite Extent* | ![Threaded](assets/icones/opt_tipo_threaded.png) ![Finite Extent](assets/icones/opt_ext_finite.png) |
+| 6 | **Round › Chamfer** | ![Chamfer](assets/icones/menu_chamfer.png) |
+| 7 | **View Wizard** e **Principal** (Draft) | ![View Wizard](assets/icones/dft_view_wizard.png) ![Principal](assets/icones/dft_principal.png) |
+| 8 | **Inspect › Properties**; **Update Views**; **File › Save As › Save As Translated** (PDF) | ![Properties](assets/icones/btn_properties.png) ![Update Views](assets/icones/dft_update_views.png) |
+
+Os ícones são do Solid Edge 2026; em outras versões a aparência pode variar.
+
 ## 4. Desenho técnico
 
 Apresente as vistas ortográficas necessárias para definir a peça e uma vista isométrica. Escolha como vista principal aquela em que o furo de Ø16 mm aparece como círculo.
