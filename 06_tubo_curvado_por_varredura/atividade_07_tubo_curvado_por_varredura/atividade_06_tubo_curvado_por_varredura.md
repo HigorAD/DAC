@@ -1,4 +1,4 @@
-# Atividade 07 — Modelagem de tubo curvado no Solid Edge
+# Atividade 06 — Modelagem de tubo curvado no Solid Edge
 
 **Disciplina:** Desenho Assistido por Computador (DAC)  
 **Ambiente:** Solid Edge — **Part**, modelagem **Ordered**  
@@ -36,7 +36,7 @@ Construir um tubo ou barra circular curvada, com dois segmentos retos unidos por
 
 1. Abra o **Solid Edge** e crie um documento no ambiente **Part**.
 2. Selecione o modo de modelagem **Ordered** quando aplicável.
-3. Confira as unidades do arquivo e salve o documento com nome identificável, por exemplo `Aula19_Tubo_Curvado.par`.
+3. Confira as unidades do arquivo e salve o documento com nome identificável, por exemplo `Aula6_Tubo_Curvado.par`.
 4. Localize o **PathFinder** e identifique os planos de referência disponíveis.
 
 ![Documento Part e seleção inicial de plano](./assets/frame_002.jpg)
